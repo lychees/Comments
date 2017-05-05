@@ -1,11 +1,11 @@
 ## Switch
-开启时显示渲染的内容
+- 开启时显示渲染过的页面，关闭时显示正常的页面
   
 ## Fliter
-- Friends
-- Groups
-- Top
-- Random
+- Friends 好友
+- Groups 组群
+- Top 热门
+- Random 随机
   
 ## Comments
 - Text Tool
@@ -14,4 +14,9 @@
 - Upload Tool
   - PNG
   - Custome JavaScript
+  
+## Permission 可以设置评论的权限
+- Pravite 自己可见
+- Protect 好友可见
+- Public 公开
  
