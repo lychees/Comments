@@ -24,8 +24,8 @@ func hash_string(str string) string {
 
 func register(name string, password string) (bool, string) {
 	password = hash_string(password)
-	if count, err := db.UsersC.Find(bson.M{"name": name}).Count(); count > 0 {
-		return false, ALREADY_EXISTS)
+	if count, err := db.UsersC.Find(bson.M{"Name": name}).Count(); count > 0 {
+		return false, ALREADY_EXISTS
 	} else if err != nil {
 		return false, ERROR
 	}
@@ -37,7 +37,7 @@ func register(name string, password string) (bool, string) {
 }
 
 func login(name string, password string) (bool, string) {
-	if count, err := db.UsersC.Find(bson.M{"name": name, "password": hash_string(password)}).Count(); count > 0 {
+	if count, err := db.UsersC.Find(bson.M{"Name": name, "Password": hash_string(password)}).Count(); count > 0 {
 		return true, OK
 	} else if err != nil {
 		return false, ERROR
