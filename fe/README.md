@@ -13,7 +13,7 @@
 - Paint Tool
 - Upload Tool
   - PNG
-  - Custome JavaScript
+  - Custom JavaScript
   
 ## Permission 可以设置评论的权限
 - Pravite 自己可见
