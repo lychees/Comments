@@ -6,19 +6,19 @@ import (
 )
 
 type Page struct {
-	url string
+	Url string
 }
 
 type Comment struct {
-	author bson.ObjectId
-	text string
-	x int
-	y int
-	date time.Time
+	Author bson.ObjectId
+	Text string
+	X int
+	Y int
+	Date time.Time
 }
 
 type User struct {
-	name string
-	password string
+	Name string
+	Password string
 }
 

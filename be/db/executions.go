@@ -3,10 +3,10 @@ package db
 import "gopkg.in/mgo.v2"
 
 var (
-	db *mgo.Database
-	users *mgo.Collection
-	pages *mgo.Collection
-	comments *mgo.Collection
+	Db        *mgo.Database
+	UsersC    *mgo.Collection
+	PagesC    *mgo.Collection
+	CommentsC *mgo.Collection
 )
 
 func Init(servers string)  {
@@ -14,10 +14,10 @@ func Init(servers string)  {
 	if err != nil {
 		panic(err)
 	}
-	db = session.DB("comments")
-	users = db.C("users")
-	pages = db.C("pages")
-	comments = db.C("comments")
+	Db = session.DB("CommentsC")
+	UsersC = Db.C("UsersC")
+	PagesC = Db.C("PagesC")
+	CommentsC = Db.C("CommentsC")
 }
 
 
