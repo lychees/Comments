@@ -19,6 +19,11 @@
   - PNG
   - Custom JavaScript
   
+## Permission 可以设置评论的权限
+- Pravite 自己可见
+- Protect 好友可见
+- Public 公开
+
 ```
 class Comment{
   string owner;
@@ -33,9 +38,4 @@ class Text : public Comment{
 }
 ```
   
-  
-## Permission 可以设置评论的权限
-- Pravite 自己可见
-- Protect 好友可见
-- Public 公开
  
