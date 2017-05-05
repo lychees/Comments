@@ -1,3 +1,7 @@
+- 随时随地留下见解。
+- 与最好的好友分享私密。
+- 与志同道合的朋友不期而遇。
+
 ## Switch
 - 开启时显示渲染过的页面，关闭时显示正常的页面
   
@@ -14,6 +18,21 @@
 - Upload Tool
   - PNG
   - Custom JavaScript
+  
+```
+class Comment{
+  string owner;
+  string url;
+  int timestamp;
+  enum permission;
+}
+
+class Text : public Comment{
+  string text;
+  pair<int, int> coordinate;
+}
+```
+  
   
 ## Permission 可以设置评论的权限
 - Pravite 自己可见
