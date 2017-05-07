@@ -2,7 +2,6 @@
 import path = require('path');
 
 import routes from './routes/index';
-import users from './routes/user';
 
 var app = express();
 
@@ -13,7 +12,6 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

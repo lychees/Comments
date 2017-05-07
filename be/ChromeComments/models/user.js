@@ -4,7 +4,8 @@ exports.UserSchema = new mongoose.Schema({
     username: { type: String, requried: true },
     password: { type: String, required: true },
     salt: { type: String, required: true },
-    email: { type: String, required: true }
+    email: { type: String, required: true },
+    token: { type: String, index: true, required: true }
 });
 var User = mongoose.model('Users', exports.UserSchema);
 Object.defineProperty(exports, "__esModule", { value: true });
