@@ -1,12 +1,12 @@
 "use strict";
 /*
- * GET api results.
+ * GET home page.
  */
 var express = require("express");
 var router = express.Router();
-router.get('/authorize', function (req, res) {
-    res.send("respond with a resource");
+router.get('/', function (req, res) {
+    res.render('index', { title: 'Express' });
 });
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = router;
-//# sourceMappingURL=api.js.map
+//# sourceMappingURL=home.js.map

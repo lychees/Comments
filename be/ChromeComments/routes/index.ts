@@ -2,13 +2,11 @@
  * GET home page.
  */
 import express = require('express');
-import api from './api';
+import homeRouter from './home';
+import apiRouter from './api';
+
 const router = express.Router();
-
-router.get('/', (req: express.Request, res: express.Response) => {
-    res.render('index', { title: 'Express' });
-});
-
-router.use('/api', api);
+router.use('/', homeRouter);
+router.use('/api', apiRouter);
 
 export default router;
