@@ -1,0 +1,16 @@
+.comments {
+    color: #000;
+    background: rgba(255,255,215,.85);
+    margin-top: -1px;
+    border: 1px solid #d4cb68;
+    position: relative;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: left;
+    padding: 4px 5px 3px 5px;
+    _height: 1%;
+    min-height: 1px;
+    overflow: hidden;
+    word-wrap: break-word;
+    cursor: pointer;    
+}
