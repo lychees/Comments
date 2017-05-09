@@ -1,6 +1,6 @@
 .comments {
     color: #000;
-    background: rgba(255,255,215,.85);
+    background: rgba(255, 255, 215, .85);
     margin-top: -1px;
     border: 1px solid #d4cb68;
     position: relative;
@@ -12,5 +12,5 @@
     min-height: 1px;
     overflow: hidden;
     word-wrap: break-word;
-    cursor: pointer;    
+    cursor: pointer;
 }
