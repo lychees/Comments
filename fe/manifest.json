@@ -16,5 +16,8 @@
   "browser_action": {
     "default_title": "Wow"
   },
-  "manifest_version": 2
+  "manifest_version": 2,
+  "web_accessible_resources":[
+    "img/*.png"
+  ]
 }
