@@ -22,7 +22,7 @@ func hash_string(str string) string {
 	return hex.EncodeToString(hasher.Sum(nil))
 }
 
-func register(name string, password string) (bool, string) {
+func Register(name string, password string) (bool, string) {
 	password = hash_string(password)
 	if count, err := db.UsersC.Find(bson.M{"Name": name}).Count(); count > 0 {
 		return false, ALREADY_EXISTS
@@ -36,7 +36,7 @@ func register(name string, password string) (bool, string) {
 	}
 }
 
-func login(name string, password string) (bool, string) {
+func Login(name string, password string) (bool, string) {
 	if count, err := db.UsersC.Find(bson.M{"Name": name, "Password": hash_string(password)}).Count(); count > 0 {
 		return true, OK
 	} else if err != nil {

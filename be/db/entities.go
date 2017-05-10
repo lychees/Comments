@@ -1,16 +1,17 @@
 package db
 
 import (
-	"gopkg.in/mgo.v2/bson"
 	"time"
 )
 
 type Page struct {
+	Id string `json:"id" bson:"_id,omitempty"`
 	Url string
 }
 
 type Comment struct {
-	Author bson.ObjectId
+	Page string
+	Author string
 	Text string
 	X int
 	Y int

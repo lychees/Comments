@@ -14,7 +14,7 @@ func Init(servers string)  {
 	if err != nil {
 		panic(err)
 	}
-	Db = session.DB("CommentsC")
+	Db = session.DB("Comments")
 	UsersC = Db.C("UsersC")
 	PagesC = Db.C("PagesC")
 	CommentsC = Db.C("CommentsC")
