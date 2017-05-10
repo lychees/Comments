@@ -5,9 +5,10 @@
   "content_scripts": [{
     "matches": ["http://www.yinwang.org/*"],
     "css": [
-      "css/style.css"
+      "css/style.css",
+      "css/jquery-ui.min.css"
     ],
-    "js": ["jquery-3.2.1.min.js", "start.js"]
+    "js": ["js/jquery-3.2.1.min.js", "js/jquery-ui.min.js", "start.js"]
   }],
   "permissions": [
     "tabs",

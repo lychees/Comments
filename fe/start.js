@@ -19,6 +19,8 @@ window.addComment = function (content, num, top, left) {
       left: left,
     });
 
+    commentElm.draggable();
+
     // 绑定like按钮
     $(document).on('click', '.like', function () {
       const likeElm = $(this);
