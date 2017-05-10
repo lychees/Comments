@@ -1,6 +1,6 @@
 {
   "name": "YinWangComments",
-  "description": "Some talk to yingwang",
+  "description": "Some talks to yingwang",
   "version": "0.0.1",
   "content_scripts": [{
     "matches": ["http://www.yinwang.org/*"],

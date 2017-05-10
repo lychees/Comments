@@ -1,12 +1,31 @@
+window.addComment = function (content, top, left) {
+  const commentElm = $(`<div>${content}</div>`).addClass('comment').appendTo('body');
+  commentElm.css({
+    top: top,
+    left: left,
+  });
+
+  // TODO: post new data to api
+}
+
 $(document).ready(() => {
-  $(document).click((event) => {
-    console.log(event);
-    const newElm = $(`<div>Text.</div>`).appendTo('body');
-    newElm.css({
-      top: event.clientY,
-      left: event.clientX,
-      position: 'absolute',
-      'z-index': 100,
+  // TODO: fetch comments from api
+
+  $(document).dblclick((event) => {
+    const inputElm = $(`<input type="text"></input>`).addClass('comment-input').appendTo('body');
+    inputElm.css({
+      top: event.pageY,
+      left: event.pageX,
+    });
+    inputElm.focus();
+    inputElm.bind('keypress', function (event) {
+      if (event.keyCode === 13) {
+        window.addComment(inputElm.val(), inputElm.css('top'), inputElm.css('left'));
+        inputElm.remove();
+      }
+    });
+    inputElm.focusout(() => {
+      inputElm.remove();
     });
   });
 });
