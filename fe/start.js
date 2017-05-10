@@ -59,8 +59,8 @@ window.addComment = function (content, num, top, left) {
 }
 
 $(document).ready(() => {
-  // TODO: fetch comments from api
 
+  // TODO: fetch comments from api
   $(document).dblclick((event) => {
     const inputElm = $(`<input type="text"></input>`).addClass('comment-input').appendTo('body');
     inputElm.css({
