@@ -1,0 +1,53 @@
+.comment-input {
+    position: absolute;
+    z-index: 50;
+    width: 200px;
+    font-size: 11px;
+}
+
+.comment {
+    position: absolute;
+    z-index: 100;
+    opacity: 0.75;
+    font-size: 11px;
+}
+
+.comment .content {
+    padding: 5px;
+    background-color: #ffffe4;
+    border: 1px solid #ddd586;
+    font-size: 11px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.comment .action {
+    display: none;
+    vertical-align: top;
+}
+
+.comment .module {
+    padding: 2px;
+    background-color: #ffffe4;
+    border: 1px solid #ddd586;
+    font-size: 11px;
+    display: block;
+}
+
+.comment .like {
+    background: url('chrome-extension://__MSG_@@extension_id__/img/thumb_ico.png');
+    background-position: 0 0;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.comment .close {
+    background: url('chrome-extension://__MSG_@@extension_id__/img/thumb_ico.png');
+    background-position: 0 15;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}

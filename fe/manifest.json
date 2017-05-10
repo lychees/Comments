@@ -1,23 +1,27 @@
 {
-  "name": "Page Redder",
-  "description": "Make the current page red",
-  "version": "0.001",
-  "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "css": [],
-      "js": ["jquery-3.2.1.min.js"]
-    }
-  ],
-  "background": {
-    "scripts": ["start.js"],
-    "persistent": false
-  },  
+  "name": "YinWangComments",
+  "description": "Some talks to yingwang",
+  "version": "0.0.1",
   "permissions": [
-    "activeTab"
+    "tabs",
+    "http://www.yinwang.org/"
   ],
   "browser_action": {
     "default_title": "Wow"
   },
-  "manifest_version": 2
+  "manifest_version": 2,
+  "web_accessible_resources":[
+    "img/*.png"
+  ],
+  "background": { 
+    "scripts": ["background.js"] 
+  },
+  "content_scripts": [{
+    "matches": ["http://www.yinwang.org/*"],
+    "css": [
+      "css/style.css",
+      "css/jquery-ui.min.css"
+    ],
+    "js": ["js/jquery-3.2.1.min.js", "js/jquery-ui.min.js", "start.js"]
+  }]
 }

@@ -1,9 +1,81 @@
-// Copyright (c) 2011 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+window.addComment = function (content, num, top, left) {
+  if (content) {
+    const commentElm = $(`
+    <div>
+      <div class="content">${content}</div>
+      <div class="action">
+        <div class="module">
+          <span class="like" allowClick="true"></span>
+          <span class="num">${num}</span>
+        </div>
+        <div class="module" style="width:15px;">
+          <span class="close"></span>
+        </div>
+      </div>
+    </div>
+    `).addClass('comment').appendTo('body');
+    commentElm.css({
+      top: top,
+      left: left,
+    });
 
-// Called when the user clicks on the browser action.
-chrome.browserAction.onClicked.addListener(function(tab) {
-  // No tabs or host permissions needed!
-  chrome.tabs.executeScript(null, {file: "main.js"});
+    commentElm.draggable();
+
+    // 绑定like按钮
+    $(document).on('click', '.like', function () {
+      const likeElm = $(this);
+
+      if (likeElm.attr('allowClick') === 'true') {
+        const numElm = likeElm.next();
+        numElm.html(parseInt(numElm.html(), 10) + 1);
+
+        likeElm.attr('allowClick', 'false');
+        likeElm.css({
+          'background-position': '0 30',
+          cursor: 'default',
+        });
+      }
+    });
+
+    // 绑定close按钮
+    $(document).on('click', '.close', function () {
+      $(this).parent().parent().parent().remove();
+    });
+
+    // like和close的显示隐藏
+    commentElm.mouseenter(() => {
+      commentElm.children('.action').css({
+        display: 'inline-block',
+      });
+    });
+    commentElm.mouseleave(() => {
+      commentElm.children('.action').css({
+        display: 'none',
+      });
+    });
+  }
+
+  // TODO: post new data to api
+}
+
+$(document).ready(() => {
+
+  // TODO: fetch comments from api
+  $(document).dblclick((event) => {
+    const inputElm = $(`<input type="text"></input>`).addClass('comment-input').appendTo('body');
+    inputElm.css({
+      top: event.pageY,
+      left: event.pageX,
+    });
+    inputElm.focus();
+    inputElm.bind('keypress', function (event) {
+      if (event.keyCode === 13) {
+        window.addComment(inputElm.val(), 0, inputElm.css('top'), inputElm.css('left'));
+        inputElm.remove();
+      }
+    });
+    inputElm.focusout(() => {
+      inputElm.remove();
+    });
+  });
 });
