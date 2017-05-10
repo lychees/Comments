@@ -1,9 +1,11 @@
 window.addComment = function (content, top, left) {
-  const commentElm = $(`<div>${content}</div>`).addClass('comment').appendTo('body');
-  commentElm.css({
-    top: top,
-    left: left,
-  });
+  if (content) {
+    const commentElm = $(`<div>${content}</div>`).addClass('comment').appendTo('body');
+    commentElm.css({
+      top: top,
+      left: left,
+    });
+  }
 
   // TODO: post new data to api
 }
