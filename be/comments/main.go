@@ -25,7 +25,7 @@ func Post(
 func Get(url_hash string) []db.Comment {
 	var results []db.Comment = []db.Comment{}
 	db.CommentsC.Find(bson.M{
-		"Page": url_hash,
+		"page": url_hash,
 	}).All(&results)
 	return results
 }
