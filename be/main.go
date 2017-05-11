@@ -13,12 +13,12 @@ func main() {
 	log.Println("Comment server starting...")
 	db.Init("localhost:27017")
 	r := gin.Default()
-	r.GET("/get", func(c *gin.Context) {
+	r.GET("/comment", func(c *gin.Context) {
 		url := c.Query("url")
 		url_hash := pages.Get(url)
 		c.JSON(200, comments.Get(url_hash))
 	})
-	r.POST("/post", func(c *gin.Context) {
+	r.POST("/comment", func(c *gin.Context) {
 		url := c.Query("url")
 		url_hash := pages.Get(url)
 		author := c.PostForm("author")
