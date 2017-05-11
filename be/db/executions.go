@@ -14,10 +14,10 @@ func Init(servers string)  {
 	if err != nil {
 		panic(err)
 	}
-	Db = session.DB("Comments")
-	UsersC = Db.C("UsersC")
-	PagesC = Db.C("PagesC")
-	CommentsC = Db.C("CommentsC")
+	Db = session.DB("comments")
+	UsersC = Db.C("users")
+	PagesC = Db.C("pages")
+	CommentsC = Db.C("comments")
 }
 
 
