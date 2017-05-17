@@ -4,7 +4,7 @@ window.addComment = function (content, num, top, left) {
     <div>
       <div class="content">${content}</div>
       <div class="action">
-        <div class="module">
+        <div class="module" style="display:none;">
           <span class="like" allowClick="true"></span>
           <span class="num">${num}</span>
         </div>
@@ -54,17 +54,16 @@ window.addComment = function (content, num, top, left) {
             });
         });
     }
-
-    // TODO: post new data to api
 }
 
 $(document).ready(() => {
-    const endpoint_url = "http://hq.shisoft.net:8080/comment?url=" + window.encodeURI(window.location.href);
+    const endpoint_url = "http://hq.shisoft.net:8080/comment?url=" + encodeURIComponent(window.location.href);
     $.get(endpoint_url, null, function (res) {
         $(res).each(function (_, comment) {
-            window.addComment(comment.text, "", comment.y, comment.x);
+            window.addComment(comment.text, 0, comment.y, comment.x);
         });
     }, "json");
+
     $(document).dblclick((event) => {
         const inputElm = $(`<input type="text"></input>`).addClass('comment-input').appendTo('body');
         inputElm.css({
@@ -74,14 +73,14 @@ $(document).ready(() => {
         inputElm.focus();
         inputElm.bind('keypress', function (event) {
             if (event.keyCode === 13) {
+                window.addComment(inputElm.val(), 0, inputElm.css('top'), inputElm.css('left'));
+                inputElm.remove();
+
                 $.post(endpoint_url, {
-                    author: "",
-                    text: comment.text,
-                    x: comment.x,
-                    y: comment.y
-                }, function (res) {
-                    window.addComment(inputElm.val(), 0, inputElm.css('top'), inputElm.css('left'));
-                    inputElm.remove();
+                    author: null,
+                    text: inputElm.val(),
+                    x: inputElm.css('left'),
+                    y: inputElm.css('top'),
                 }, "json");
             }
         });

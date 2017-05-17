@@ -11,4 +11,4 @@ function switchApp() {
 }
 
 chrome.browserAction.onClicked.addListener(switchApp);
-switchApp();  
+switchApp();
