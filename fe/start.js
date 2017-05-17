@@ -57,7 +57,7 @@ window.addComment = function (content, num, top, left) {
 }
 
 $(document).ready(() => {
-    const endpoint_url = "http://hq.shisoft.net:8080/comment?url=" + encodeURIComponent(window.location.href);
+    const endpoint_url = "http://hq.shisoft.net:9090/comment?url=" + encodeURIComponent(window.location.href);
     $.get(endpoint_url, null, function (res) {
         $(res).each(function (_, comment) {
             window.addComment(comment.text, 0, comment.y, comment.x);
