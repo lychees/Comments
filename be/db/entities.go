@@ -6,20 +6,20 @@ import (
 
 type Page struct {
 	Id string `json:"id" bson:"_id,omitempty"`
-	Url string
+	Url string `json:"url"`
 }
 
 type Comment struct {
-	Page string
-	Author string
-	Text string
-	X int
-	Y int
-	Date time.Time
+	Page string `json:"page"`
+	Author string `json:"author"`
+	Text string `json:"text"`
+	X int `json:"x"`
+	Y int `json:"y"`
+	Date time.Time `json:"date"`
 }
 
 type User struct {
-	Name string
-	Password string
+	Name string `json:"name"`
+	Password string `json:"password"`
 }
 
