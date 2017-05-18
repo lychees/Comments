@@ -59,8 +59,8 @@ window.addComment = function (content, num, top, left) {
 $(document).ready(() => {
     const endpoint_url = "http://hq.shisoft.net:9090/comment?url=" + encodeURIComponent(window.location.href);
     $.get(endpoint_url, null, function (res) {
-        $(res).each(function (_, comment) {
-            window.addComment(comment.text, 0, comment.y, comment.x);
+        res.forEach(function (comment) {
+            window.addComment(comment.Text, 0, comment.Y, comment.X);
         });
     }, "json");
 
@@ -79,8 +79,8 @@ $(document).ready(() => {
                 $.post(endpoint_url, {
                     author: null,
                     text: inputElm.val(),
-                    x: inputElm.css('left'),
-                    y: inputElm.css('top'),
+                    x: parseInt(inputElm.css('left')),
+                    y: parseInt(inputElm.css('top')),
                 }, "json");
             }
         });
