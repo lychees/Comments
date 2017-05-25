@@ -54,18 +54,18 @@ window.addComment = function (content, num, top, left) {
             });
         });
     }
-}
+};
 
 $(document).ready(() => {
     const endpoint_url = "http://hq.shisoft.net:9090/comment?url=" + encodeURIComponent(window.location.href);
     $.get(endpoint_url, null, function (res) {
         res.forEach(function (comment) {
-            window.addComment(comment.Text, 0, comment.Y, comment.X);
+            window.addComment(comment.text, 0, comment.y, comment.x);
         });
     }, "json");
 
     $(document).dblclick((event) => {
-        const inputElm = $(`<input type="text"></input>`).addClass('comment-input').appendTo('body');
+        const inputElm = $(`<input type="text"/>`).addClass('comment-input').appendTo('body');
         inputElm.css({
             top: event.pageY,
             left: event.pageX,
